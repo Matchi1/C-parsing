@@ -1,0 +1,14 @@
+// #include <stdio.h>
+
+int main(void){
+	int value1;
+	int value2;
+
+	reade(value1);
+	reade(value2);
+
+	printf(value1);
+	printf(value2);
+
+	return 0;
+}

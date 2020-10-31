@@ -6,8 +6,8 @@
 
 CC=gcc
 CFLAGS=-Wall
-LDFLAGS=-Wall -lfl -ly
-EXEC=Projet
+LDFLAGS=-Wall -lfl 
+EXEC=as
 
 # all: $(EXEC) clean
 

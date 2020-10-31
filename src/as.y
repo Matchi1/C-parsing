@@ -1,14 +1,16 @@
 %{
-/* Projet.y */
-/* Syntaxe du TPC pour le projet d'analyse syntaxique de 2020-2021*/
-#include <stdio.h>
-int yyerror(char *s);
-int yylex();
-extern int line;
-extern int column;
+	/* Projet.y */
+	/* Syntaxe du TPC pour le projet d'analyse syntaxique de 2020-2021*/
+
+	#include <stdio.h>
+	int yyerror(char *s);
+	int yylex();
+	extern int line;
+	extern int column;
 %}
 
-%token EQ AND OR DIVSTAR ADDSUB ORDER VOID RETURN IF ELSE WHILE PRINT READC READE NUM IDENT CHARACTER TYPE
+%token EQ AND OR DIVSTAR ADDSUB ORDER VOID RETURN 
+%token IF ELSE WHILE PRINT READC READE NUM IDENT CHARACTER TYPE
 
 %%
 Prog:  DeclVars DeclFoncts
@@ -100,10 +102,10 @@ ListExp:
 %%
 
 int yyerror(char *s) {
-  printf("Erreur à la ligne %d colonne %d!\n", line, column);
-  return 0;
+	printf("Erreur à la ligne %d colonne %d!\n", line, column);
+	return 0;
 }
 
 int main() {
-  return yyparse()? 0 : 1;
+  return yyparse();
 }
