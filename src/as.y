@@ -7,6 +7,7 @@
 	int yylex();
 	extern int line;
 	extern int column;
+	extern char text_line[100];
 %}
 
 %token EQ AND OR DIVSTAR ADDSUB ORDER VOID RETURN 
@@ -101,11 +102,24 @@ ListExp:
     ;
 %%
 
+void display_error(){
+	int index;
+	for(index = 0; index < column - 1; index++){
+		if(text_line[index] == '\t')
+			printf("\t");
+		else 
+			printf(" ");
+	}
+	printf("^\n");
+}
+
 int yyerror(char *s) {
 	printf("Erreur à la ligne %d colonne %d!\n", line, column);
+	printf("%s\n", text_line);
+	display_error();
 	return 0;
 }
 
 int main() {
-  return yyparse();
+  return yyparse() ? 0 : 1;
 }

@@ -2,8 +2,24 @@
 	/*Projet.lex*/
 	#include <stdio.h>
 	#include "as.tab.h"
+
+	char text_line[100];	
+	int index_text = 0;
 	int line = 1;
 	int column = 0;
+
+	#undef YY_INPUT
+	#define YY_INPUT(buf, result, max_size){ \
+		int c = getchar(); \
+		if(c == '\n') \
+			index_text = 0; \
+		else { \
+			text_line[index_text] = c; \
+			index_text++; \
+			text_line[index_text] = '\0'; \
+		} \
+		result = (c == EOF) ? YY_NULL : (buf[0] = c, 1); \
+	}
 %}
 
 %option noyywrap
@@ -48,6 +64,6 @@
 
 . 							{column++; return yytext[0];}
 
-\n 							{line++; column = 0;}
+\n 							{line++; column = 0; }
 <<EOF>>						{return 0;}
 %%
