@@ -6,7 +6,7 @@
 
 CC=gcc
 CFLAGS=-Wall
-LDFLAGS=-Wall -lfl 
+LDFLAGS=-Wall -lfl
 EXEC=as
 
 # all: $(EXEC) clean

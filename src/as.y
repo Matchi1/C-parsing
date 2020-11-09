@@ -10,7 +10,7 @@
 	extern char text_line[100];
 %}
 
-%token EQ AND OR DIVSTAR ADDSUB ORDER VOID RETURN 
+%token EQ AND OR DIVSTAR ADDSUB ORDER VOID RETURN
 %token IF ELSE WHILE PRINT READC READE NUM IDENT CHARACTER TYPE
 
 %%
@@ -107,7 +107,7 @@ void display_error(){
 	for(index = 0; index < column - 1; index++){
 		if(text_line[index] == '\t')
 			printf("\t");
-		else 
+		else
 			printf(" ");
 	}
 	printf("^\n");
@@ -121,5 +121,5 @@ int yyerror(char *s) {
 }
 
 int main() {
-  return yyparse() ? 0 : 1;
+  return yyparse();
 }
