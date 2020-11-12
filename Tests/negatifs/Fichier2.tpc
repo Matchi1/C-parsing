@@ -1,8 +1,13 @@
 /* #include <stdio.h> */
 
-int main(void){
-	hello;
+int printf(int input){
+	int x, y;
+	print(input);
+}
+
+int main(){
 	int nombre;
 	
-	nombre = ++;
+	nombre = 10;
+	return 0;
 }
