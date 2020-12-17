@@ -32,7 +32,9 @@ do
     echo "Résultat attendus pour "$i": 1, résultat obtenu: "$? >> $resultat
 done
 
+echo "Les Résultats des tests sont disponible dans le fichier $resultat\n"
+
 #Suppression des fichiers .c et .h
 echo -e "\n\n"
 echo "Suppression des fichiers .c et .h"
-make mrproper
+make clean

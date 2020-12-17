@@ -59,10 +59,10 @@
 "reade"  					{column += yyleng; return READE;}
 
 [0-9]+ 						{column += yyleng; return NUM;}
-"int"|"double" 				{column += yyleng; return TYPE;}
+"int"|"char" 				{column += yyleng; return TYPE;}
 [a-zA-Z_][a-zA-Z0-9_]* 		{column += yyleng; return IDENT;}
 
-[a-zA-Z]					{column ++; return CHARACTER;}
+\'.\'					{column ++; return CHARACTER;}
 . 							{column++; return yytext[0];}
 
 \n 							{line++; column = 0; }
