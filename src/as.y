@@ -12,6 +12,8 @@
 
 %token EQ AND OR DIVSTAR ADDSUB ORDER VOID RETURN
 %token IF ELSE WHILE PRINT READC READE NUM IDENT CHARACTER TYPE
+%precedence ')'
+%precedence ELSE
 
 %%
 Prog:  DeclVars DeclFoncts
