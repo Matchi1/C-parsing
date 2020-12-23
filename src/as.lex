@@ -60,6 +60,7 @@
 
 [0-9]+ 						{column += yyleng; return NUM;}
 "int"|"char" 				{column += yyleng; return TYPE;}
+"struct" 					{column += yyleng; return STRUCT;}
 [a-zA-Z_][a-zA-Z0-9_]* 		{column += yyleng; return IDENT;}
 
 \'.\'					{column ++; return CHARACTER;}

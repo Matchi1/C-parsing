@@ -10,7 +10,7 @@
 	extern char text_line[100];
 %}
 
-%token EQ AND OR DIVSTAR ADDSUB ORDER VOID RETURN
+%token EQ AND OR DIVSTAR ADDSUB ORDER VOID RETURN STRUCT
 %token IF ELSE WHILE PRINT READC READE NUM IDENT CHARACTER TYPE
 %precedence ')'
 %precedence ELSE
@@ -20,6 +20,7 @@ Prog:  DeclVars DeclFoncts
     ;
 DeclVars:
        DeclVars TYPE Declarateurs ';'
+	|  DeclVars Structure Declarateurs ';'
     |
     ;
 Declarateurs:
@@ -43,8 +44,13 @@ Parametres:
     ;
 ListTypVar:
        ListTypVar ',' TYPE IDENT
+	|  ListTypVar ',' Structure IDENT
     |  TYPE IDENT
+	|  Structure IDENT
     ;
+Structure:
+	   STRUCT IDENT
+	;
 Corps: '{' DeclVars SuiteInstr '}'
     ;
 SuiteInstr:

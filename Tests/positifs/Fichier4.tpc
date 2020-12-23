@@ -1,5 +1,10 @@
 // #include <stdio.h>
 
+
+int fonction(int value, struct type_list list, list1, list2){
+	return 0;
+}
+
 int main(void){
 	int value1;
 	int value2;
