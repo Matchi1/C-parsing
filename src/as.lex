@@ -10,15 +10,17 @@
 
 	#undef YY_INPUT
 	#define YY_INPUT(buf, result, max_size){ \
-		int c = getchar(); \
-		if(c == '\n') \
-			index_text = 0; \
-		else { \
-			text_line[index_text] = c; \
-			index_text++; \
-			text_line[index_text] = '\0'; \
-		} \
+		char c = fgetc(yyin); \
 		result = (c == EOF) ? YY_NULL : (buf[0] = c, 1); \
+		if(index_text == 0){ \
+			while(c != EOF && c != '\n'){ \
+				text_line[index_text] = c; \
+				index_text++; \
+				c = fgetc(yyin); \
+			} \
+			text_line[index_text] = '\0'; \
+			fseek(yyin, -(index_text), SEEK_CUR); \
+		} \
 	}
 %}
 
@@ -34,11 +36,11 @@
 \" 							{column ++; BEGIN STRING;}
 
 <COMMENT>"*/" 				{column += yyleng; BEGIN INITIAL;}
-<OLCOMMENT>\n 				{column = 0; line++; BEGIN INITIAL;}
+<OLCOMMENT>\n 				{column = 0; line++; index_text = 0; BEGIN INITIAL;}
 <STRING>\" 					{column++; BEGIN INITIAL;}
-<STRING>\\\n 				{column += yyleng;}
+<STRING>\\\n 				{column += yyleng; }
 <STRING>\\\" 				{column += yyleng;}
-<OLCOMMENT,COMMENT>"\n" 	{line++; column = 0;}
+<OLCOMMENT,COMMENT>"\n" 	{line++; column = 0; index_text = 0;}
 <OLCOMMENT,COMMENT,STRING>. {column++;}
 
 [ \t]+ 						{column += yyleng;}
@@ -66,6 +68,6 @@
 \'.\'					{column ++; return CHARACTER;}
 . 							{column++; return yytext[0];}
 
-\n 							{line++; column = 0; }
+\n|\r 							{line++; column = 0; index_text = 0;}
 <<EOF>>						{return 0;}
 %%

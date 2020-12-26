@@ -1,3 +1,15 @@
+/*
+Test des tokens suivants:
+	- TYPE
+	- IDENT
+	- IF
+	- AND
+	- OR
+	- ORDER
+	- PRINT
+	- RETURN
+	- ELSE
+*/
 /*int x, y, z;*/
 
 int main(int argc)

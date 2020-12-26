@@ -1,7 +1,16 @@
+/*
+Fichier qui va tester les tokens suivant:
+	- STRUCT
+	- IDENT
+	- TYPE
+	- READE
+	- RETURN
+*/
 // #include <stdio.h>
 
+struct global g1, g2, g3;
 
-int fonction(int value, struct type_list list, list1, list2){
+int fonction(int value, struct type1 s1, struct type2 s2, struct type3 s3){
 	return 0;
 }
 

@@ -1,3 +1,10 @@
+/*
+Test des tokens suivants:
+	- TYPE
+	- IDENT
+	- PRINT
+	- RETURN
+*/
 /* #include <stdio.h> */
 
 int printf(int input){

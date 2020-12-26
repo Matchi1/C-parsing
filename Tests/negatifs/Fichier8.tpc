@@ -1,3 +1,11 @@
+/*
+Test des tokens suivants:
+	- TYPE
+	- IDENT
+	- RETURN
+*/
+
+struct type1 s1, struct type2 s2;
 
 int new_fct(int x, int y){
 	int dx, dy;
@@ -9,8 +17,10 @@ int new_fct(int x, int y){
 }
 
 int main(void){
-	assert(hello);
 	int i;
+	assert(hello);
+
+	print('k');
 	return 0;
 }
 

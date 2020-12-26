@@ -1,3 +1,9 @@
+/*
+Test des tokens suivants:
+	- TYPE
+	- IDENT
+	- PRINT
+*/
 /* #include <stdio.h>*/
 
 int main(void){

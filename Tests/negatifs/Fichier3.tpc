@@ -1,3 +1,13 @@
+/*
+Test des tokens suivants:
+	- TYPE
+	- IDENT
+	- READE
+	- READC
+	- RETURN 
+	- ADDSUB
+	- DIVSTAR
+*/
 // #include <stdio.h>
 // #include <stdlib.h>
 

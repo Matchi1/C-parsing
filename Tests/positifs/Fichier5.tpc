@@ -1,3 +1,14 @@
+/*
+Test des tokens suivants:
+	- IDENT
+	- TYPE
+	- WHILE
+	- RETURN
+	- PRINT
+	- ADDSUB
+	- ORDER
+
+*/
 /*TP n°5*/
 
 int sumOfI(int n){ int sum, i; sum = 0; i = 0;
@@ -17,5 +28,6 @@ int main(void)    {
         }
         print(sum);
         print(sum - sumOfI(10));
+		print('o');
   return 0;
 }
