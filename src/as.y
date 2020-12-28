@@ -16,8 +16,15 @@
 %precedence ELSE
 
 %%
-Prog:  DeclVars DeclFoncts
+Prog:  DeclStructs DeclVars DeclFoncts
     ;
+DeclStructs:
+	   DeclStructs DeclStruct 	
+	|
+	;
+DeclStruct:
+	   Structure '{' TYPE Declarateurs '}' ';'
+	;
 DeclVars:
        DeclVars TYPE Declarateurs ';'
 	|  DeclVars Structure Declarateurs ';'

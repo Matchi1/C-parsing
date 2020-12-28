@@ -12,6 +12,7 @@
 	#define YY_INPUT(buf, result, max_size){ \
 		char c = fgetc(yyin); \
 		result = (c == EOF) ? YY_NULL : (buf[0] = c, 1); \
+		/* Vérifie si la ligne a déjà été enregistré */ \
 		if(index_text == 0){ \
 			while(c != EOF && c != '\n'){ \
 				text_line[index_text] = c; \
@@ -19,7 +20,7 @@
 				c = fgetc(yyin); \
 			} \
 			text_line[index_text] = '\0'; \
-			fseek(yyin, -(index_text), SEEK_CUR); \
+			fseek(yyin, -index_text, SEEK_CUR); \
 		} \
 	}
 %}
