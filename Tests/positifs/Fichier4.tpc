@@ -17,6 +17,7 @@ int fonction(int value, struct type1 s1, struct type2 s2, struct type3 s3){
 int main(void){
 	int value1;
 	int value2;
+	char test, tyui, top;
 
 	reade(value1);
 	reade(value2);

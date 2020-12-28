@@ -9,8 +9,11 @@ Test des tokens suivants:
 	- PRINT
 	- RETURN
 	- ELSE
+	- STRUCT
 */
 /*int x, y, z;*/
+
+struct test1 {int t, r, t;}
 
 int main(int argc)
 { int age, c; age = 4; if(age > 18){print(age);}

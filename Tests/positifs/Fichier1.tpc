@@ -5,10 +5,12 @@
 /* Résolution d'une équation du deuxième degré */
 int r1, r2;
 int max;
+char test;
 
 int main(void) {
    int b, c;
    b=-1;
+   test = 't';
    while (b<=1) {
        c=-1;
        while (c<=1) {

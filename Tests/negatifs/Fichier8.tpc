@@ -3,6 +3,7 @@ Test des tokens suivants:
 	- TYPE
 	- IDENT
 	- RETURN
+	- Struct
 */
 
 struct type1 s1, struct type2 s2;
@@ -23,4 +24,3 @@ int main(void){
 	print('k');
 	return 0;
 }
-

@@ -10,24 +10,25 @@
 	extern char text_line[100];
 %}
 
-%token EQ AND OR DIVSTAR ADDSUB ORDER VOID RETURN STRUCT
+%token EQ AND OR DIVSTAR ADDSUB ORDER VOID RETURN STRUCT ENTETEDECLSTRUCT
 %token IF ELSE WHILE PRINT READC READE NUM IDENT CHARACTER TYPE
 %precedence ')'
 %precedence ELSE
 
 %%
-Prog:  DeclStructs DeclVars DeclFoncts
+Prog:
+			 DeclStructs DeclVars DeclFoncts
     ;
 DeclStructs:
-	   DeclStructs DeclStruct 	
-	|
-	;
+	  	 DeclStructs DeclStruct
+		|
+		;
 DeclStruct:
-	   Structure '{' TYPE Declarateurs '}' ';'
-	;
+	   	 ENTETEDECLSTRUCT CorpsStruct
+		;
 DeclVars:
        DeclVars TYPE Declarateurs ';'
-	|  DeclVars Structure Declarateurs ';'
+	  |  DeclVars EnTeteStruct Declarateurs ';'
     |
     ;
 Declarateurs:
@@ -51,15 +52,23 @@ Parametres:
     ;
 ListTypVar:
        ListTypVar ',' TYPE IDENT
-	|  ListTypVar ',' Structure IDENT
+		|  ListTypVar ',' EnTeteStruct IDENT
     |  TYPE IDENT
-	|  Structure IDENT
+		|  EnTeteStruct IDENT
     ;
-Structure:
-	   STRUCT IDENT
-	;
-Corps: '{' DeclVars SuiteInstr '}'
+EnTeteStruct:
+	  	 STRUCT IDENT
+		;
+Corps:
+			 '{' DeclVars SuiteInstr '}'
     ;
+ChampsStruct:
+			ChampsStruct TYPE Declarateurs ';'
+		| TYPE Declarateurs ';'
+		;
+CorpsStruct:
+			ChampsStruct '}'
+		;
 SuiteInstr:
        SuiteInstr Instr
     |
