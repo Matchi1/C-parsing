@@ -8,7 +8,14 @@ Fichier qui va tester les tokens suivant:
 */
 // #include <stdio.h>
 
-struct global g1, g2, g3;
+struct 
+global {
+	int size;
+	char rep;
+};
+
+struct global g1,
+g2, g3;
 
 int fonction(int value, struct type1 s1, struct type2 s2, struct type3 s3){
 	return 0;

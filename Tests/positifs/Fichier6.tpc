@@ -10,10 +10,12 @@ Test des tokens suivants:
 	- RETURN
 	- ELSE
 	- STRUCT
+	- CHARACTER
+	- EQ
 */
 /*int x, y, z;*/
 
-struct test1 {int t, r, t;}
+struct test1 {int t, r, t;};
 
 int main(int argc)
 { int age, c; age = 4; if(age > 18){print(age);}
@@ -31,4 +33,5 @@ int main(int argc)
   else if(c == 1 || c == 0){
      print(c);
   }
+  return 'c' == 1 && 2 >= 2;
 }

@@ -67,7 +67,7 @@ ChampsStruct:
 		| TYPE Declarateurs ';'
 		;
 CorpsStruct:
-			ChampsStruct '}'
+			ChampsStruct '}' ';'
 		;
 SuiteInstr:
        SuiteInstr Instr
