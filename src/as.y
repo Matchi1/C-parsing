@@ -45,6 +45,7 @@ DeclFonct:
 EnTeteFonct:
        TYPE IDENT '(' Parametres ')'
     |  VOID IDENT '(' Parametres ')'
+	|  EnTeteStruct IDENT '(' Parametres ')'
     ;
 Parametres:
        VOID

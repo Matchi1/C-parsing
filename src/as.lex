@@ -45,7 +45,7 @@
 <OLCOMMENT,COMMENT,STRING>. 													{column++;}
 
 [ \t]+ 																								{column += yyleng;}
-== 																										{column += yyleng; return EQ;}
+==|!= 																										{column += yyleng; return EQ;}
 && 																										{column += yyleng; return AND;}
 \|\| 																									{column += yyleng; return OR;}
 \*|\/|% 																							{column++; return DIVSTAR;}
