@@ -1,1 +1,5 @@
-bin/*.o
+bin/
+*.tar.gz
+as
+*.output
+*.log
